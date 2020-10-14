@@ -32,7 +32,8 @@
 @interface UIWebView (_AFNetworking)
 @property (readwrite, nonatomic, strong, setter = af_setHTTPRequestOperation:) AFHTTPRequestOperation *af_HTTPRequestOperation;
 @end
-
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-implementations"
 @implementation UIWebView (_AFNetworking)
 
 - (AFHTTPRequestOperation *)af_HTTPRequestOperation {
@@ -48,7 +49,7 @@
 #pragma mark -
 
 @implementation UIWebView (AFNetworking)
-
+#pragma clang diagnostic pop
 - (AFHTTPRequestSerializer <AFURLRequestSerialization> *)requestSerializer {
     static AFHTTPRequestSerializer <AFURLRequestSerialization> *_af_defaultRequestSerializer = nil;
     static dispatch_once_t onceToken;
